@@ -8,6 +8,16 @@ function sayName(num) {
 
 const names = ref(['Sakib', 'Abony', 'Sadiq'])
 
+const inputValue = ref('placeholder value');
+
+function handleInputChange(event){
+    inputValue.value = event.target.value;
+}
+
+function handleSubmit(event){
+    console.log(event);
+}
+
 </script>
 
 <template>
@@ -23,6 +33,19 @@ const names = ref(['Sakib', 'Abony', 'Sadiq'])
   <h1 v-for="(number, index) in names">
     {{ number }} {{ index }}
   </h1>
+
+  <h1>{{ inputValue }}</h1>
+
+  <input 
+  type="text"
+  
+  v-model = "inputValue"
+  >
+
+  <form @submit.prevent="handleSubmit">
+    <input type="text" value="value 1">
+    <input type="submit" name="" id="">
+  </form>
 
 </template>
 
